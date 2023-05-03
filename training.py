@@ -1,8 +1,17 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
-
+mean_accs_fedavg = []
+mean_accs_ghcfl = []
+clients_over_ghcfl = []
+dw_ghcfl = []
+ratios = {}
+last_acc_fedavg = []
+last_acc_fedprox = []
+last_acc_gcfl = []
+last_acc_ghcfl = []
 
 def run_selftrain_GC(clients, server, local_epoch):
     # all clients are initialized with the same weights
@@ -19,6 +28,102 @@ def run_selftrain_GC(clients, server, local_epoch):
 
     return allAccs
 
+def run_ghcfl(clients, server, comm_threshold, dist_threshold, COMMUNICATION_ROUNDS, local_epoch, frac=1.0):
+    print("running hierarchical clustering...")
+    
+    '''initialize w_0'''
+    for client in clients:
+        client.download_from_server(server)#initialize all the clients 
+    '''for round 1 - n, do fedAvg selecting a partial clients'''
+    for c_round in range(1,comm_threshold):#1-n round communication, do FEDERATED_LEARNING
+        if (c_round) % 50 == 0:
+            print(f"  > round {c_round}")
+        if c_round == 1:
+            selected_clients = clients
+        else:
+            selected_clients = server.randomSample_clients(clients, frac)
+            
+        for client in selected_clients:
+            client.compute_weight_update(local_epoch) #client_update
+        
+        server.aggregate_weights(selected_clients) #W(t+1) = sum(n{k}/n * W(t))
+        
+        #pass the aggregated weights from server to selected clients:
+        for client in selected_clients:
+            client.download_from_server(server)#到了这一步，客户端最后存储了server进行Avg操作后的joint global model
+            # cache the aggregated weights for next round
+            client.cache_weights()#这里已经把joint global model的w存到了w_old
+        
+        accs = []
+        client_dWs = []         
+        for client in clients:
+            loss, acc = client.evaluate()
+            accs.append(acc)
+            dW = []
+            for k in client.W.keys():
+                dW.append(client.dW[k])
+            client_dWs.append(dW)
+        mean_accs_ghcfl.append(np.mean(accs))#每一个round计算一次所有clients的mean_acc
+        # dw_ghcfl.append(np.mean(client_dWs))
+        clients_over_ghcfl.append(len([acc for acc  in accs if acc > 0.75]))
+    # print("\nmean_accs:",mean_accs_ghcfl)
+    
+    
+    '''for each of all clients, do CLIENT_UPDATE to get delta W'''
+    for client in clients:
+        client.compute_weight_update(local_epoch)
+    '''server cluster the clients by hierarchical_clustering_algorithm'''
+    client_clusters = server.hierarchical_clustering_clients(clients, dist_threshold)
+    
+    
+    '''for the rest of the communication rounds, update by clusters'''
+    for client in clients:
+        client.download_from_server(server)#initialize all the clients 
+    for c_round in range(comm_threshold,COMMUNICATION_ROUNDS + 1):
+        if (c_round) % 50 == 0:
+            print(f"  > round {c_round}")
+        selected_clients = server.randomSample_clients(clients, frac)
+        
+        for client in selected_clients:
+            client.compute_weight_update(3) #client_update
+            
+        server.aggregate_clusterwise(client_clusters)#aggregate by clusters
+        #pass the aggregated weights from server to selected clients:
+        for client in selected_clients:
+            client.download_from_server(server)#到了这一步，客户端最后存储了server进行Avg操作后的joint global model
+            # cache the aggregated weights for next round
+            client.cache_weights()#这里已经把joint global model的w存到了w_old
+            
+        accs = [] 
+        client_dWs = []    
+        for client in clients:
+            loss, acc = client.evaluate()
+            accs.append(acc)
+            dW = []
+            for k in client.W.keys():
+                dW.append(client.dW[k])
+            client_dWs.append(dW)
+        mean_accs_ghcfl.append(np.mean(accs))#每一个round计算一次所有clients的mean_acc
+        # dw_ghcfl.append(np.mean(client_dWs))
+        # if c_round == COMMUNICATION_ROUNDS:
+        #     print("final accs:",accs) 
+        #     last_acc_ghcfl = accs
+            
+        clients_over_ghcfl.append(len([acc for acc  in accs if acc > 0.75]))
+    # last_acc_ghcfl = accs 
+    
+    ratios["HCFL"] = clients_over_ghcfl
+    print("\nmean_accs:",mean_accs_ghcfl)
+   
+   
+    '''test and output results to file'''
+    frame = pd.DataFrame()
+    for client in clients:
+        loss, acc = client.evaluate()
+        frame.loc[client.name, 'test_acc'] = acc
+
+    print(frame)
+    return frame,mean_accs_ghcfl
 
 def run_fedavg(clients, server, COMMUNICATION_ROUNDS, local_epoch, samp=None, frac=1.0):
     for client in clients:
@@ -27,7 +132,7 @@ def run_fedavg(clients, server, COMMUNICATION_ROUNDS, local_epoch, samp=None, fr
     if samp is None:
         sampling_fn = server.randomSample_clients
         frac = 1.0
-    mean_accs = []
+    
     for c_round in range(1, COMMUNICATION_ROUNDS + 1):
         if (c_round) % 50 == 0:
             print(f"  > round {c_round}")
@@ -48,8 +153,16 @@ def run_fedavg(clients, server, COMMUNICATION_ROUNDS, local_epoch, samp=None, fr
         for client in clients:
             loss, acc = client.evaluate()
             accs.append(acc)
-        mean_accs.append(np.mean(accs))
-
+        mean_accs_fedavg.append(np.mean(accs))
+        if c_round == COMMUNICATION_ROUNDS:
+            print("final accs:",accs) 
+            last_acc_fedavg = accs
+            
+    clients_over_avg = len([acc for acc  in accs if acc > 0.75])
+    ratios["FedAvg"] = clients_over_avg
+    
+    # plt.plot(mean_accs)
+     
     frame = pd.DataFrame()
     for client in clients:
         loss, acc = client.evaluate()
@@ -61,7 +174,53 @@ def run_fedavg(clients, server, COMMUNICATION_ROUNDS, local_epoch, samp=None, fr
 
     fs = frame.style.apply(highlight_max).data
     print(fs)
-    return frame
+    return frame,mean_accs_fedavg
+
+
+# def run_fedavg(clients, server, COMMUNICATION_ROUNDS, local_epoch, samp=None, frac=1.0):
+#     for client in clients:
+#         client.download_from_server(server)
+
+#     if samp is None:
+#         sampling_fn = server.randomSample_clients
+#         frac = 1.0
+#     mean_accs = []
+#     for c_round in range(1, COMMUNICATION_ROUNDS + 1):
+#         if (c_round) % 50 == 0:
+#             print(f"  > round {c_round}")
+
+#         if c_round == 1:
+#             selected_clients = clients
+#         else:
+#             selected_clients = sampling_fn(clients, frac)
+
+#         for client in selected_clients:
+#             # only get weights of graphconv layers
+#             client.local_train(local_epoch)
+
+#         server.aggregate_weights(selected_clients)
+#         for client in selected_clients:
+#             client.download_from_server(server)
+#         accs = []   
+#         for client in clients:
+#             loss, acc = client.evaluate()
+#             accs.append(acc)
+#         mean_accs.append(np.mean(accs))
+
+#     frame = pd.DataFrame()
+#     for client in clients:
+#         loss, acc = client.evaluate()
+#         frame.loc[client.name, 'test_acc'] = acc
+
+#     def highlight_max(s):
+#         is_max = s == s.max()
+#         return ['background-color: yellow' if v else '' for v in is_max]
+
+#     fs = frame.style.apply(highlight_max).data
+#     print(fs)
+#     return frame
+
+
 
 
 def run_fedprox(clients, server, COMMUNICATION_ROUNDS, local_epoch, mu, samp=None, frac=1.0):
