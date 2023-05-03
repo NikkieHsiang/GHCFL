@@ -101,6 +101,12 @@ if __name__ == '__main__':
                         help='number of repeating rounds to simulate;')
     parser.add_argument('--num_rounds', type=int, default=200,
                         help='number of rounds to simulate;')
+        
+    parser.add_argument('--comm_threshold', type=int, default=10,
+                        help='the communication round threshold to cluster;')
+    parser.add_argument('--dist_threshold',type=float,default=1.0,
+                        help='the distance threshold to cluster')
+    
     parser.add_argument('--local_epoch', type=int, default=1,
                         help='number of local epochs;')
     parser.add_argument('--lr', type=float, default=0.001,
@@ -200,9 +206,45 @@ if __name__ == '__main__':
     init_clients, init_server, init_idx_clients = setupGC.setup_devices(splitedData, args)
     print("\nDone setting up devices.")
 
-    process_selftrain(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), local_epoch=100)
-    process_fedavg(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
+    # process_selftrain(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), local_epoch=100)
+    # process_fedavg(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
+    _ , mean_accs_fedavg = run_fedavg(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), COMMUNICATION_ROUNDS = args.num_rounds , local_epoch = args.local_epoch)
+    _ , mean_accs_ghcfl = run_ghcfl(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), comm_threshold =args.comm_threshold, dist_threshold = args.dist_threshold, COMMUNICATION_ROUNDS = args.num_rounds, local_epoch =args.local_epoch)
     # process_fedprox(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), mu=0.01)
     # process_gcfl(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
     # process_gcflplus(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
     # process_gcflplusdWs(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
+
+    fig, ax = plt.subplots()
+    df = pd.DataFrame()
+    ax.plot(mean_accs_ghcfl, label='GHCFL')
+    ax.plot(mean_accs_fedavg, label='FedAvg')
+    print("mean_accs_fedavg",mean_accs_fedavg)
+    # ax.plot(mean_accs_fedprox,label = 'FedProx')
+    # ax.plot(mean_accs_gcfl,label = "GCFL")
+    plt.axvline(args.comm_threshold-1)
+    # plt.ylim((0.2, 1.4))
+    plt.xticks(np.arange(len(mean_accs_ghcfl)), np.arange(1, len(mean_accs_ghcfl)+1))
+    plt.xticks(np.arange(len(mean_accs_fedavg)), np.arange(1, len(mean_accs_fedavg)+1))
+    ax.legend() #自动检测要在图例中显示的元素，并且显示
+
+
+    figure_save_path = "file_figs"
+    if not os.path.exists(figure_save_path):
+        os.makedirs(figure_save_path) # 如果不存在目录figure_save_path，则创建
+    r = args.num_rounds
+    n = args.comm_threshold
+    name = args.data_group
+    plt.savefig(os.path.join(figure_save_path , f'{r}r_{n}n_{name}.png'))
+    # plt.show() #图形可视化
+        
+    mean_acc_fedavg = np.mean(mean_accs_fedavg)
+    # mean_acc_fedprox = np.mean(mean_accs_fedprox)
+    # mean_acc_gcfl = np.mean(mean_accs_gcfl)
+    print("mean_accs_ghcfl: ", mean_accs_ghcfl)
+    mean_acc_ghcfl = np.mean(mean_accs_ghcfl)
+
+    ds = f'{args.num_rounds}r_{args.comm_threshold}n_{args.data_group}'
+    improve_ratio = mean_acc_ghcfl/mean_acc_fedavg
+    print("improve_ratio",improve_ratio)
+    df.loc[ds, 'accuracy'] = improve_ratio

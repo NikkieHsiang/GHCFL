@@ -69,6 +69,7 @@ def prepareData_oneDS(datapath, data, num_client, batchSize, convert_x=False, se
     return splitedData, df
 
 def prepareData_multiDS(datapath, group='small', batchSize=32, convert_x=False, seed=None):
+    print("@@@",group)
     assert group in ['molecules', 'molecules_tiny', 'small', 'mix', "mix_tiny", "biochem", "biochem_tiny"]
 
     if group == 'molecules' or group == 'molecules_tiny':
