@@ -126,7 +126,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--datapath', type=str, default='./data',
                         help='The input path of data.')
-    parser.add_argument('--outbase', type=str, default='./outputs',
+    parser.add_argument('--outbase', type=str, default='./outputs_csv',
                         help='The base path for outputting.')
     parser.add_argument('--repeat', help='index of repeating;',
                         type=int, default=None)
@@ -244,7 +244,16 @@ if __name__ == '__main__':
     print("mean_accs_ghcfl: ", mean_accs_ghcfl)
     mean_acc_ghcfl = np.mean(mean_accs_ghcfl)
 
-    ds = f'{args.num_rounds}r_{args.comm_threshold}n_{args.data_group}'
+    ds = f'{args.num_rounds}r_{args.comm_threshold}n_{args.data_group}_{args.local_epoch}e_{args.dist_threshold}d'
     improve_ratio = mean_acc_ghcfl/mean_acc_fedavg
     print("improve_ratio",improve_ratio)
     df.loc[ds, 'accuracy'] = improve_ratio
+    
+    outbase = './outputs_csv'
+    # 如果不存在目录figure_save_path，则创建
+    outbase = os.path.join(args.outbase, f'localEpoch{args.local_epoch}')
+    outpath = os.path.join(outbase, f"distThreshold{args.dist_threshold}")
+    outfile = os.path.join(outpath, f'{args.num_rounds}r_{args.comm_threshold}n_{args.data_group}.csv')
+    if not os.path.exists(outpath):
+            os.makedirs(outpath)
+    df.to_csv(outfile)
