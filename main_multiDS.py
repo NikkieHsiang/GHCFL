@@ -235,7 +235,7 @@ if __name__ == '__main__':
     r = args.num_rounds
     n = args.comm_threshold
     name = args.data_group
-    plt.savefig(os.path.join(figure_save_path , f'{r}r_{n}n_{name}.png'))
+    plt.savefig(os.path.join(figure_save_path , f'{r}r_{n}n_{name}_{args.local_epoch}e_{args.dist_threshold}d.png'))
     # plt.show() #图形可视化
         
     mean_acc_fedavg = np.mean(mean_accs_fedavg)
