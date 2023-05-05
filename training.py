@@ -5,6 +5,7 @@ import os
 
 mean_accs_fedavg = []
 mean_accs_ghcfl = []
+mean_accs_fedprox = []
 clients_over_ghcfl = []
 dw_ghcfl = []
 ratios = {}
@@ -220,9 +221,6 @@ def run_fedavg(clients, server, COMMUNICATION_ROUNDS, local_epoch, samp=None, fr
 #     print(fs)
 #     return frame
 
-
-
-
 def run_fedprox(clients, server, COMMUNICATION_ROUNDS, local_epoch, mu, samp=None, frac=1.0):
     for client in clients:
         client.download_from_server(server)
@@ -251,7 +249,16 @@ def run_fedprox(clients, server, COMMUNICATION_ROUNDS, local_epoch, mu, samp=Non
 
             # cache the aggregated weights for next round
             client.cache_weights()
-
+        accs = []   
+        for client in clients:
+            loss, acc = client.evaluate()
+            accs.append(acc)
+        mean_accs_fedprox.append(np.mean(accs))
+        if c_round == COMMUNICATION_ROUNDS:
+            print("final accs:",accs) 
+            last_acc_fedprox = accs
+    clients_over_prox = len([acc for acc  in accs if acc > 0.85])
+    ratios["FedProx"] = clients_over_prox
     frame = pd.DataFrame()
     for client in clients:
         loss, acc = client.evaluate()
@@ -263,7 +270,50 @@ def run_fedprox(clients, server, COMMUNICATION_ROUNDS, local_epoch, mu, samp=Non
 
     fs = frame.style.apply(highlight_max).data
     print(fs)
-    return frame
+    return frame,mean_accs_fedprox
+
+
+# def run_fedprox(clients, server, COMMUNICATION_ROUNDS, local_epoch, mu, samp=None, frac=1.0):
+#     for client in clients:
+#         client.download_from_server(server)
+
+#     if samp is None:
+#         sampling_fn = server.randomSample_clients
+#         frac = 1.0
+#     if samp == 'random':
+#         sampling_fn = server.randomSample_clients
+
+#     for c_round in range(1, COMMUNICATION_ROUNDS + 1):
+#         if (c_round) % 50 == 0:
+#             print(f"  > round {c_round}")
+
+#         if c_round == 1:
+#             selected_clients = clients
+#         else:
+#             selected_clients = sampling_fn(clients, frac)
+
+#         for client in selected_clients:
+#             client.local_train_prox(local_epoch, mu)
+
+#         server.aggregate_weights(selected_clients)
+#         for client in selected_clients:
+#             client.download_from_server(server)
+
+#             # cache the aggregated weights for next round
+#             client.cache_weights()
+
+#     frame = pd.DataFrame()
+#     for client in clients:
+#         loss, acc = client.evaluate()
+#         frame.loc[client.name, 'test_acc'] = acc
+
+#     def highlight_max(s):
+#         is_max = s == s.max()
+#         return ['background-color: yellow' if v else '' for v in is_max]
+
+#     fs = frame.style.apply(highlight_max).data
+#     print(fs)
+#     return frame
 
 
 def run_gcfl(clients, server, COMMUNICATION_ROUNDS, local_epoch, EPS_1, EPS_2):

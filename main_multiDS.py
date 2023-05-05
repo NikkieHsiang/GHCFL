@@ -8,6 +8,7 @@ from pathlib import Path
 
 import setupGC
 from training import *
+import matplotlib.ticker as ticker
 
 
 def process_selftrain(clients, server, local_epoch):
@@ -210,6 +211,7 @@ if __name__ == '__main__':
     # process_fedavg(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
     _ , mean_accs_fedavg = run_fedavg(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), COMMUNICATION_ROUNDS = args.num_rounds , local_epoch = args.local_epoch)
     _ , mean_accs_ghcfl = run_ghcfl(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), comm_threshold =args.comm_threshold, dist_threshold = args.dist_threshold, COMMUNICATION_ROUNDS = args.num_rounds, local_epoch =args.local_epoch)
+    _ , mean_accs_fedprox = run_fedprox(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), mu=0.01, COMMUNICATION_ROUNDS = args.num_rounds, local_epoch =args.local_epoch)
     # process_fedprox(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server), mu=0.01)
     # process_gcfl(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
     # process_gcflplus(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
@@ -217,17 +219,30 @@ if __name__ == '__main__':
 
     fig, ax = plt.subplots()
     df = pd.DataFrame()
+    df_acc = pd.DataFrame()
     ax.plot(mean_accs_ghcfl, label='GHCFL')
     ax.plot(mean_accs_fedavg, label='FedAvg')
+    ax.plot(mean_accs_fedprox, label='FedProx')
     print("mean_accs_fedavg",mean_accs_fedavg)
     # ax.plot(mean_accs_fedprox,label = 'FedProx')
     # ax.plot(mean_accs_gcfl,label = "GCFL")
-    plt.axvline(args.comm_threshold-1)
+    plt.axvline(args.comm_threshold-1,color='r', linestyle='--', label='n')
     # plt.ylim((0.2, 1.4))
     plt.xticks(np.arange(len(mean_accs_ghcfl)), np.arange(1, len(mean_accs_ghcfl)+1))
     plt.xticks(np.arange(len(mean_accs_fedavg)), np.arange(1, len(mean_accs_fedavg)+1))
+    plt.xticks(np.arange(len(mean_accs_fedprox)), np.arange(1, len(mean_accs_fedprox)+1))
+    plt.xticks(rotation=45)   # 设置横坐标显示的角度，角度是逆时针，自己看
+    tick_spacing = 3 
+    ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
     ax.legend() #自动检测要在图例中显示的元素，并且显示
+    
+    max_acc_ghcfl = np.max(mean_accs_ghcfl)
+    max_acc_fedavg = np.max(mean_accs_fedavg)
+    max_acc_fedprox = np.max(mean_accs_fedprox)
 
+    df_acc.loc['ghcfl','acc'] = max_acc_ghcfl
+    df_acc.loc['fedAvf','acc'] = max_acc_fedavg
+    df_acc.loc['ghcfl','acc'] = max_acc_fedprox
 
     figure_save_path = "file_figs"
     if not os.path.exists(figure_save_path):
@@ -239,15 +254,17 @@ if __name__ == '__main__':
     # plt.show() #图形可视化
         
     mean_acc_fedavg = np.mean(mean_accs_fedavg)
-    # mean_acc_fedprox = np.mean(mean_accs_fedprox)
-    # mean_acc_gcfl = np.mean(mean_accs_gcfl)
-    print("mean_accs_ghcfl: ", mean_accs_ghcfl)
+    mean_acc_fedprox = np.mean(mean_accs_fedprox)
     mean_acc_ghcfl = np.mean(mean_accs_ghcfl)
 
-    ds = f'{args.num_rounds}r_{args.comm_threshold}n_{args.data_group}_{args.local_epoch}e_{args.dist_threshold}d'
-    improve_ratio = mean_acc_ghcfl/mean_acc_fedavg
-    print("improve_ratio",improve_ratio)
-    df.loc[ds, 'accuracy'] = improve_ratio
+    improve_ratio_ghcfl = mean_acc_ghcfl/mean_acc_fedavg
+    improve_ratio_fedprox = mean_acc_fedprox/mean_acc_fedavg
+
+    df.loc[f'{args.data_group}', 'improve_ratio_to_avg'] = improve_ratio_ghcfl
+    df.loc[f'{args.data_group}', 'improve_ratio_to_prox'] = improve_ratio_fedprox
+    df.loc[f'{args.data_group}', 'max_acc_ghcfl'] = max_acc_ghcfl
+    df.loc[f'{args.data_group}', 'max_acc_fedavg'] = max_acc_fedavg
+    df.loc[f'{args.data_group}', 'max_acc_fedprox'] = max_acc_fedprox
     
     outbase = './outputs_csv'
     # 如果不存在目录figure_save_path，则创建
@@ -257,3 +274,4 @@ if __name__ == '__main__':
     if not os.path.exists(outpath):
             os.makedirs(outpath)
     df.to_csv(outfile)
+    
