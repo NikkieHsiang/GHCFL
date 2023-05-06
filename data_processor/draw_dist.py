@@ -34,6 +34,8 @@ print(data)
 fig, ax = plt.subplots()
 for i in range(len(data)):
     name = data[i][0]
+    for j in range(len(data[i][1:])):
+        data[i][j+1] = float(data[i][j+1])
     ax.plot(data[i][1:], label=name)
 ax.legend()
 tick_spacing = 10
