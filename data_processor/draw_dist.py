@@ -2,6 +2,7 @@
 import csv
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+    
 def read_csv(filename):
     # 创建一个空数组，用于存储所有列的数据
     data = []
@@ -26,7 +27,7 @@ def read_csv(filename):
     return data
 
 # 调用函数，读取CSV文件并将每一列封装为一个数组
-data = read_csv('test77.csv')
+data = read_csv('xxxx_dist_test.csv')
 
 # 打印数据
 print(data)
@@ -34,11 +35,11 @@ print(data)
 fig, ax = plt.subplots()
 for i in range(len(data)):
     name = data[i][0]
-    for j in range(len(data[i][1:])):
-        data[i][j+1] = float(data[i][j+1])
-    ax.plot(data[i][1:], label=name)
+    if name:
+        for j in range(len(data[i][1:])):
+            data[i][j+1] = float(data[i][j+1])
+        ax.plot(data[i][1:], label=name)
 ax.legend()
-tick_spacing = 10
-ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
+# tick_spacing = 10
+# ax.yaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
 plt.show()
-    

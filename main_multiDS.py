@@ -285,7 +285,7 @@ if __name__ == '__main__':
     print(length)
     if length != 0:
         df = pd.read_csv(filename, header=0)
-        df = df.drop(df.columns[0], axis=1)
+        # df = df.drop(df.columns[0], axis=1)
         df = df.assign(**{f'{args.data_group}-{args.dist_threshold}d': mean_accs_ghcfl})
         df.to_csv(filename,index=False)
     else:
