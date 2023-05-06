@@ -1,2 +1,2 @@
-,accuracy
-50r_1n_biochem_1e_1.1d,1.015364803970978
+,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox
+biochem,1.0140332383542991,1.009589874399325,0.6733672463331376,0.6667677200988957,0.6773036334471556
