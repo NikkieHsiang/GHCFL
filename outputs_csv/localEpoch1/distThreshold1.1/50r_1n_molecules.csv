@@ -1,2 +1,2 @@
-,accuracy
-50r_1n_molecules_1e_1.1d,1.0182590550419668
+,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox
+molecules,1.0192962100022238,0.9978167511071623,0.7523934035979779,0.7289418785392414,0.7269648687572264
