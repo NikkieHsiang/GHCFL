@@ -2,7 +2,7 @@ import os
 import argparse
 import random
 import copy
-
+import csv
 import torch
 from pathlib import Path
 
@@ -217,9 +217,21 @@ if __name__ == '__main__':
     # process_gcflplus(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
     # process_gcflplusdWs(clients=copy.deepcopy(init_clients), server=copy.deepcopy(init_server))
 
+
+# 创建一个数组
+    # my_array = [1, 2, 3, 4, 5]
+
+    # 打开一个CSV文件并写入数组
+    with open('data.csv', mode='a') as csv_file:
+        writer = csv.writer(csv_file)
+        writer.writerow([f'{args.data_group}-{args.dist_threshold}d'])
+        for val in mean_accs_ghcfl:
+            writer.writerow([val])
+
+
     fig, ax = plt.subplots()
     df = pd.DataFrame()
-    df_acc = pd.DataFrame()
+    df_test_dist = pd.DataFrame()
     ax.plot(mean_accs_ghcfl, label='GHCFL')
     ax.plot(mean_accs_fedavg, label='FedAvg')
     ax.plot(mean_accs_fedprox, label='FedProx')
@@ -240,9 +252,9 @@ if __name__ == '__main__':
     max_acc_fedavg = np.max(mean_accs_fedavg)
     max_acc_fedprox = np.max(mean_accs_fedprox)
 
-    df_acc.loc['ghcfl','acc'] = max_acc_ghcfl
-    df_acc.loc['fedAvf','acc'] = max_acc_fedavg
-    df_acc.loc['ghcfl','acc'] = max_acc_fedprox
+    # df_acc.loc['ghcfl','acc'] = max_acc_ghcfl
+    # df_acc.loc['fedAvf','acc'] = max_acc_fedavg
+    # df_acc.loc['ghcfl','acc'] = max_acc_fedprox
 
     figure_save_path = "file_figs"
     if not os.path.exists(figure_save_path):
@@ -275,3 +287,33 @@ if __name__ == '__main__':
             os.makedirs(outpath)
     df.to_csv(outfile)
     
+    
+    # new_column = [13,14,15,16]
+    # array1 = [1, 2, 3, 4, 5]
+    # array2 = [6, 7, 8, 9, 10]
+    # array3 = [11, 12, 13, 14, 15]
+    # 读取CSV文件，并将第一行视为列名
+    filename = 'test77.csv'
+
+    # 如果文件不存在，则创建文件
+    if not os.path.isfile(filename):
+        # print("@@@")
+        with open(filename, 'w') as f:
+            f.write('')  # 写入空字符串
+    if os.path.getsize(filename) == 0:
+        length = 0
+    else :
+        length = 1
+    df = pd.DataFrame()
+    print(length)
+    if length != 0:
+        print("not empty")
+        df = pd.read_csv('test77.csv', header=0)
+        df = df.drop(df.columns[0], axis=1)
+        df = df.assign(**{f'{args.data_group}-{args.dist_threshold}d': mean_accs_ghcfl})
+        df.to_csv(filename)
+    else:
+        print("empty")
+        df = df.assign(**{f'{args.data_group}-{args.dist_threshold}d': mean_accs_ghcfl})
+        # df = df.assign(new_column_name77=mean_accs_ghcfl)
+        df.to_csv(filename,index=False)
