@@ -226,15 +226,18 @@ if __name__ == '__main__':
     print("mean_accs_fedavg",mean_accs_fedavg)
     # ax.plot(mean_accs_fedprox,label = 'FedProx')
     # ax.plot(mean_accs_gcfl,label = "GCFL")
-    plt.axvline(args.comm_threshold-1,color='r', linestyle='--', label='n')
+    plt.axvline(args.comm_threshold-1,color='r', linestyle='--', label=f'n = {args.comm_threshold}')
     # plt.ylim((0.2, 1.4))
     plt.xticks(np.arange(len(mean_accs_ghcfl)), np.arange(1, len(mean_accs_ghcfl)+1))
     plt.xticks(np.arange(len(mean_accs_fedavg)), np.arange(1, len(mean_accs_fedavg)+1))
     plt.xticks(np.arange(len(mean_accs_fedprox)), np.arange(1, len(mean_accs_fedprox)+1))
     plt.xticks(rotation=45)   # 设置横坐标显示的角度，角度是逆时针，自己看
-    tick_spacing = 3 
+    tick_spacing = 5
     ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_spacing))
+    # ax.xaxis.set_major_locator(ticker.FixedLocator([1,5,10,15,20,25,30,35,40,45,50]))
     ax.legend() #自动检测要在图例中显示的元素，并且显示
+    plt.xlabel('communication round')
+    plt.ylabel('accuracy')
     
     max_acc_ghcfl = np.max(mean_accs_ghcfl)
     max_acc_fedavg = np.max(mean_accs_fedavg)
@@ -261,6 +264,9 @@ if __name__ == '__main__':
     df.loc[f'{args.data_group}', 'max_acc_ghcfl'] = max_acc_ghcfl
     df.loc[f'{args.data_group}', 'max_acc_fedavg'] = max_acc_fedavg
     df.loc[f'{args.data_group}', 'max_acc_fedprox'] = max_acc_fedprox
+    df.loc[f'{args.data_group}', 'mean_acc_ghcfl'] = mean_acc_ghcfl
+    df.loc[f'{args.data_group}', 'mean_acc_fedavg'] = mean_acc_fedavg
+    df.loc[f'{args.data_group}', 'mean_acc_fedprox'] = mean_acc_fedprox
     
     outbase = './outputs_csv'
     # 如果不存在目录figure_save_path，则创建

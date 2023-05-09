@@ -39,7 +39,7 @@ class Server():
     def hierarchical_clustering_clients(self,clients,dist_threshold):    
         cosine_similarity = self.compute_pairwise_similarities(clients)   
         Z = linkage(cosine_similarity,method="average")
-        # dendrogram(Z,above_threshold_color="#fff917")
+        dendrogram(Z,above_threshold_color="#fff917")
         t1=dist_threshold
         t2=0.8
         t3=1

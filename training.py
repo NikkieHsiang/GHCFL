@@ -90,10 +90,10 @@ def run_ghcfl(clients, server, comm_threshold, dist_threshold, COMMUNICATION_ROU
             
         server.aggregate_clusterwise(client_clusters)#aggregate by clusters
         #pass the aggregated weights from server to selected clients:
-        for client in selected_clients:
-            client.download_from_server(server)#到了这一步，客户端最后存储了server进行Avg操作后的joint global model
+        # for client in selected_clients:
+            # client.download_from_server(server)#到了这一步，客户端最后存储了server进行Avg操作后的joint global model
             # cache the aggregated weights for next round
-            client.cache_weights()#这里已经把joint global model的w存到了w_old
+            # client.cache_weights()#这里已经把joint global model的w存到了w_old
             
         accs = [] 
         client_dWs = []    
