@@ -43,7 +43,7 @@ def run_ghcfl(clients, server, comm_threshold, dist_threshold, COMMUNICATION_ROU
             selected_clients = clients
         else:
             selected_clients = server.randomSample_clients(clients, frac)
-            
+            #19:51
         for client in selected_clients:
             client.local_train(local_epoch) #client_update
         
