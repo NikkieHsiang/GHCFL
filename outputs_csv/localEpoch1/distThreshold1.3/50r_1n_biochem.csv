@@ -1,2 +1,2 @@
-,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox
-biochem,1.0131473187419755,1.001813720481916,0.6837415474825222,0.6737486532712424,0.6732381609387164
+,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox,mean_acc_ghcfl,mean_acc_fedavg,mean_acc_fedprox
+biochem,1.0790075306126465,1.00481658879122,0.7323135010037094,0.6733185648434429,0.6749457880573603,0.6965149442740942,0.6455144422195294,0.6486236198464945

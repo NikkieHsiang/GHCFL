@@ -1,2 +1,2 @@
-,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox
-mix,1.0264685584430062,1.0072998318926627,0.6827758758572385,0.6662019818296372,0.6724534436549577
+,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox,mean_acc_ghcfl,mean_acc_fedavg,mean_acc_fedprox
+mix,1.0655087223726347,1.0082638939531543,0.7109494119977232,0.6648376371347838,0.6694875032899081,0.6830636282542072,0.6410680775406388,0.6463657961501871

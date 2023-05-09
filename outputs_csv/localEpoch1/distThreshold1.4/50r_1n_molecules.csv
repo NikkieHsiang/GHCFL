@@ -1,2 +1,2 @@
-,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox
-molecules,1.0188133005106204,0.9986431785553729,0.7544789093331188,0.7292894628284314,0.7275133071106701
+,improve_ratio_to_avg,improve_ratio_to_prox,max_acc_ghcfl,max_acc_fedavg,max_acc_fedprox,mean_acc_ghcfl,mean_acc_fedavg,mean_acc_fedprox
+molecules,1.0364926504087655,0.9975200500932088,0.7663917214940464,0.7285560599782404,0.7289036442674305,0.7408957270643677,0.7148104009924025,0.713037707005088
