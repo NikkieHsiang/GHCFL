@@ -1,0 +1,1347 @@
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>new_runnerfile.bat
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 0.5
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.99, 0.7055961070559611, 0.23333333333333334, 0.6610169491525424, 0.6875, 0.762, 0.73, 0.4533333333333333]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.705596
+ENZYMES      0.233333
+DD           0.661017
+PROTEINS     0.687500
+COLLAB       0.762000
+IMDB-BINARY  0.730000
+IMDB-MULTI   0.453333
+running hierarchical clustering...
+
+clusters1:
+ [ 9  4  6  3  5  1  2 10  7 11 13 12  8]
+AIDS
+&&&&
+NCI1
+&&&&
+DHFR
+&&&&
+BZR
+&&&&
+PTC_MR
+&&&&
+COX2
+&&&&
+DD
+&&&&
+IMDB-MULTI
+&&&&
+MUTAG
+&&&&
+ENZYMES
+&&&&
+PROTEINS
+&&&&
+IMDB-BINARY
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.585408355916817, 0.5821271102704156, 0.5912509266371493, 0.6040059504083799, 0.607083876132291, 0.5749202174065885, 0.6114658177916049, 0.6159809109709317, 0.6153895898832602, 0.6296010949232325, 0.628670413064368, 0.6302254154457962, 0.6277473973197515, 0.6291761864983241, 0.6325011585488312, 0.6202026448228772, 0.6446580337162222, 0.631286120339484, 0.64196797761784, 0.6448394822318287, 0.6393744717793756, 0.6371737214595482, 0.6477796061929845, 0.6515505936903734, 0.6529742563882632, 0.6532695227663152, 0.6688221220148912, 0.6571702066437111, 0.6480904666385723, 0.6605798399877228, 0.6639870627215145, 0.6704517924328111, 0.6598845559454336, 0.6719186001724756, 0.6638831730856444, 0.6674860562225494, 0.6668828082807516, 0.6680718941340709, 0.6747840064269082, 0.675109140534744, 0.682199237373449, 0.6567281472727464, 0.664578413802135, 0.6789963994609021, 0.674287849113975, 0.6634654706247127, 0.6725137197627701, 0.679425939321841, 0.6648124621983755, 0.6710868149642538]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.995000
+NCI1         0.681265
+ENZYMES      0.333333
+DD           0.677966
+PROTEINS     0.678571
+COLLAB       0.762000
+IMDB-BINARY  0.740000
+IMDB-MULTI   0.480000
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7104622871046229, 0.2833333333333333, 0.7033898305084746, 0.6785714285714286, 0.754, 0.7, 0.47333333333333333]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.710462
+ENZYMES      0.283333
+DD           0.703390
+PROTEINS     0.678571
+COLLAB       0.754000
+IMDB-BINARY  0.700000
+IMDB-MULTI   0.473333
+mean_accs_fedavg [0.4651872975505851, 0.5422497241285987, 0.5845710272961092, 0.6016476965957155, 0.6086199140973776, 0.6142743006609563, 0.615613071173301, 0.6190658246345291, 0.6245253099922577, 0.6225254380138505, 0.6219867854626406, 0.6207081125911186, 0.6401286723604349, 0.6388930120250591, 0.6455355884267597, 0.6347845183701719, 0.6347332113943319, 0.6482318074619619, 0.6448921296957099, 0.65026509715466, 0.6490601617749753, 0.6494998157949212, 0.6478021626912925, 0.6428340813067199, 0.6503232277946911, 0.6576926258303639, 0.6567815426045461, 0.6546777809902687, 0.6578548158198458, 0.6570445968417437, 0.6577750184882236, 0.656671442222022, 0.648120532679587, 0.650896716947297, 0.6573119274533152, 0.6632906140106856, 0.6546255305066189, 0.6554973253784138, 0.6609222088787643, 0.6605331111522919, 0.6591850016346907, 0.6590727396132368, 0.6600840456192846, 0.6603594223313186, 0.6623188560272363, 0.658884436844209, 0.6584150568901699, 0.6609488869926007, 0.6568171985441362, 0.6614440189998569]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 0.6
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.99, 0.6934306569343066, 0.23333333333333334, 0.6949152542372882, 0.6964285714285714, 0.754, 0.71, 0.4666666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.693431
+ENZYMES      0.233333
+DD           0.694915
+PROTEINS     0.696429
+COLLAB       0.754000
+IMDB-BINARY  0.710000
+IMDB-MULTI   0.466667
+running hierarchical clustering...
+
+clusters1:
+ [ 8  3  5  2  4  1  1  9  6 10 12 11  7]
+AIDS
+NCI1
+&&&&
+DHFR
+&&&&
+BZR
+&&&&
+PTC_MR
+&&&&
+COX2
+&&&&
+DD
+&&&&
+IMDB-MULTI
+&&&&
+MUTAG
+&&&&
+ENZYMES
+&&&&
+PROTEINS
+&&&&
+IMDB-BINARY
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.5910340343746122, 0.5811065225855944, 0.603890241093982, 0.6045855873164839, 0.6239901276192674, 0.6257433504778968, 0.6107383333909794, 0.601849738007642, 0.5970478266112731, 0.6301373773755733, 0.6308734920176634, 0.6320184233369113, 0.6375967424156633, 0.6303552325131364, 0.6347360165400295, 0.6298354927164573, 0.6398480363400983, 0.6394561085433705, 0.6556975361948562, 0.6588709517520402, 0.6447486578226201, 0.6538794390171773, 0.6500001751617288, 0.6481499110293911, 0.6540274827816479, 0.661667560251944, 0.6712047817280594, 0.6516943236459304, 0.6549224402239789, 0.6698681534516517, 0.6625521144580991, 0.6803374369750806, 0.6718569762423621, 0.663102519844704, 0.6672195200246137, 0.6632317620611043, 0.6680215000768105, 0.6726672258096945, 0.667900899884393, 0.6711700212598584, 0.6767835113822561, 0.6691487281146438, 0.6642665810722025, 0.6861387161940267, 0.6734629531966628, 0.6779068503304124, 0.6781851359172371, 0.6611950694864928, 0.6669377357453984, 0.6721188004228136]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.985000
+NCI1         0.698297
+ENZYMES      0.383333
+DD           0.661017
+PROTEINS     0.678571
+COLLAB       0.772000
+IMDB-BINARY  0.730000
+IMDB-MULTI   0.453333
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7055961070559611, 0.23333333333333334, 0.652542372881356, 0.6785714285714286, 0.752, 0.72, 0.48]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.705596
+ENZYMES      0.233333
+DD           0.652542
+PROTEINS     0.678571
+COLLAB       0.752000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.480000
+mean_accs_fedavg [0.46500013677948276, 0.5429528966622796, 0.5825831832295815, 0.5911200998986273, 0.6083785782135822, 0.6100007540912327, 0.6139441012508979, 0.6198425799012013, 0.6246328207132164, 0.6228584180982223, 0.6244876965685252, 0.6276153823595786, 0.6428254623945998, 0.6440694434537485, 0.641471138278368, 0.6411754720698599, 0.6468954258551978, 0.6514606953417837, 0.645253661314324, 0.6496797117371579, 0.6527165345992313, 0.6517163168492301, 0.6486424551877772, 0.6480233463902692, 0.6575071780561499, 0.6628076379369016, 0.6635776937089987, 0.6544189052419089, 0.6546265046036589, 0.6601899749903384, 0.6573804511808146, 0.6537284116042421, 0.6546903282392998, 0.6537950408387545, 0.6579414979941193, 0.6557501412869887, 0.654402434867465, 0.6573166769411157, 0.6633314531253833, 0.6575741242857214, 0.6562522267927238, 0.6563711751667136, 0.6604140884578021, 0.6630274238213539, 0.6698650598131407, 0.6636659914477974, 0.6635809155479868, 0.6658040741782963, 0.6652438580325304, 0.662674385132549]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 0.7
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.985, 0.6982968369829684, 0.23333333333333334, 0.6779661016949152, 0.6875, 0.754, 0.71, 0.47333333333333333]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.985000
+NCI1         0.698297
+ENZYMES      0.233333
+DD           0.677966
+PROTEINS     0.687500
+COLLAB       0.754000
+IMDB-BINARY  0.710000
+IMDB-MULTI   0.473333
+running hierarchical clustering...
+
+clusters1:
+ [ 7  2  4  1  3  1  1  8  5  9 11 10  6]
+DHFR
+AIDS
+NCI1
+&&&&
+BZR
+&&&&
+PTC_MR
+&&&&
+COX2
+&&&&
+DD
+&&&&
+IMDB-MULTI
+&&&&
+MUTAG
+&&&&
+ENZYMES
+&&&&
+PROTEINS
+&&&&
+IMDB-BINARY
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.601870820331644, 0.5878654595124145, 0.6018870956147757, 0.6071700904046365, 0.6139845032794851, 0.629637978963766, 0.6202125987849528, 0.624118527612198, 0.6237126293741829, 0.6360010574910782, 0.6307603170776297, 0.6360077569856535, 0.6411064097453232, 0.6452914963400349, 0.6358300689060725, 0.6319272225668784, 0.6394206318340102, 0.6464295235567459, 0.6520006163264036, 0.6527858645228851, 0.646422998080902, 0.6536099105127728, 0.6545104134903512, 0.6538503833271044, 0.6510174066892387, 0.6470361520914627, 0.654067556402352, 0.6410781484688868, 0.6344527681994386, 0.6541793408621217, 0.6670288815979247, 0.6531856575202577, 0.6417979335900992, 0.6522252553919725, 0.6520318075144345, 0.6572974171985769, 0.6568994789580062, 0.6601469551199324, 0.6642821749250766, 0.6674939487448028, 0.669573875910713, 0.6785136376906136, 0.6577808356534496, 0.6641843052496986, 0.6556463084409484, 0.6716206205595235, 0.6598975294044049, 0.6750044149721343, 0.6559957728050438, 0.6502728088128727]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.676399
+ENZYMES      0.350000
+DD           0.686441
+PROTEINS     0.660714
+COLLAB       0.574000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.420000
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.708029197080292, 0.2833333333333333, 0.652542372881356, 0.7053571428571429, 0.756, 0.72, 0.4866666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.708029
+ENZYMES      0.283333
+DD           0.652542
+PROTEINS     0.705357
+COLLAB       0.756000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.486667
+mean_accs_fedavg [0.4648129760083804, 0.5418099153498068, 0.5830780363083763, 0.5999675448368802, 0.6097545017250989, 0.6115759943073239, 0.6172313300433848, 0.6210562758098127, 0.6261542046243688, 0.6207464100806719, 0.6238705796963668, 0.6284559975157944, 0.6456335272111393, 0.6461647502048143, 0.6460902851424735, 0.6459109851237573, 0.6498624282330007, 0.6516740873973755, 0.6491676493840711, 0.6454783650406362, 0.6513570884863521, 0.6476717784769668, 0.6503281513012228, 0.6465822526372246, 0.6499555427559062, 0.6617389594505562, 0.663165854136142, 0.6568648175917553, 0.6623747445899911, 0.6570182855720821, 0.6574599315173779, 0.6519710197734245, 0.6518236059682103, 0.6608905023486661, 0.6597821516701063, 0.6614476514142897, 0.6582998707649008, 0.6605404926734059, 0.6606915887421686, 0.6604050551182603, 0.6584748756025309, 0.6590347747532379, 0.6628212528633584, 0.6627756200764165, 0.6654257726373695, 0.6611534441987661, 0.661941492329447, 0.6638556045688099, 0.663012324977355, 0.6611863176513476]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 0.8
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.985, 0.6861313868613139, 0.2, 0.6864406779661016, 0.6785714285714286, 0.758, 0.72, 0.4666666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.985000
+NCI1         0.686131
+ENZYMES      0.200000
+DD           0.686441
+PROTEINS     0.678571
+COLLAB       0.758000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.466667
+running hierarchical clustering...
+
+clusters1:
+ [ 6  1  3  1  2  1  1  7  4  8 10  9  5]
+BZR
+DHFR
+AIDS
+NCI1
+&&&&
+PTC_MR
+&&&&
+COX2
+&&&&
+DD
+&&&&
+IMDB-MULTI
+&&&&
+MUTAG
+&&&&
+ENZYMES
+&&&&
+PROTEINS
+&&&&
+IMDB-BINARY
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.601870820331644, 0.5887322010433896, 0.6121225343481731, 0.6076879642582769, 0.6210267920971048, 0.6208747373392106, 0.6235273936852975, 0.6255316582771535, 0.622687175509313, 0.6378857664560791, 0.6357369181292647, 0.6395391539980599, 0.6440375440982068, 0.6422522403879373, 0.6386101146675608, 0.6348227465241367, 0.6456007337437298, 0.6483315716303267, 0.6517663519928567, 0.6625874414770045, 0.656039022351077, 0.6581596837219549, 0.6530398416892711, 0.6419788236525015, 0.6589134623982253, 0.655508189456547, 0.66751316920433, 0.6564743868546093, 0.6663933652740207, 0.6758053391294236, 0.6774560683540115, 0.6757445882385972, 0.6700391951533947, 0.665460327281195, 0.664065836106981, 0.6692559878250306, 0.6734704357755297, 0.6724983857215794, 0.6745002228880831, 0.6875729324029033, 0.6679922470772592, 0.6724715397068576, 0.67138363046917, 0.6806424580022248, 0.6845019551448568, 0.6815321415035103, 0.6453782384763549, 0.6487712794944731, 0.6512101271751571, 0.6485300134829194]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.485714
+AIDS         0.990000
+NCI1         0.683698
+ENZYMES      0.283333
+DD           0.703390
+PROTEINS     0.642857
+COLLAB       0.644000
+IMDB-BINARY  0.740000
+IMDB-MULTI   0.453333
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7055961070559611, 0.3, 0.6864406779661016, 0.6785714285714286, 0.75, 0.67, 0.48]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.705596
+ENZYMES      0.300000
+DD           0.686441
+PROTEINS     0.678571
+COLLAB       0.750000
+IMDB-BINARY  0.670000
+IMDB-MULTI   0.480000
+mean_accs_fedavg [0.46726011020151553, 0.5458464212168213, 0.5819843258619503, 0.5960075782085974, 0.6057480523824503, 0.6137715868297754, 0.6102013557700601, 0.6198640118487747, 0.6227987117729588, 0.6187803031742581, 0.6181101282627742, 0.6300316045760606, 0.6407289637964927, 0.6416998906592296, 0.6410539283696326, 0.6374994188146901, 0.6415783469590023, 0.6414685180275725, 0.6389767512888059, 0.6464446473253028, 0.645932397811445, 0.6473152752746144, 0.6446470254453476, 0.6417068883421522, 0.6471819787389919, 0.6346736466858744, 0.6503472226665766, 0.6485282069056457, 0.6516585911199715, 0.6574949228776196, 0.6548686428316314, 0.654116497167077, 0.6562207991910872, 0.6571750746364551, 0.6497384383007094, 0.6576836668113223, 0.6612123998416635, 0.6563292989638204, 0.6648942895219447, 0.6580815744626628, 0.6516140946662828, 0.657625847501678, 0.6602147030973998, 0.6613837722648607, 0.6618524133190516, 0.6601357937597995, 0.6593572813117954, 0.6631260709163515, 0.6620274181566818, 0.6582155910914216]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 0.9
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.99, 0.6982968369829684, 0.25, 0.6440677966101694, 0.6875, 0.732, 0.72, 0.4866666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.698297
+ENZYMES      0.250000
+DD           0.644068
+PROTEINS     0.687500
+COLLAB       0.732000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.486667
+running hierarchical clustering...
+
+clusters1:
+ [5 1 2 1 1 1 1 6 3 7 9 8 4]
+BZR
+DHFR
+PTC_MR
+AIDS
+NCI1
+&&&&
+COX2
+&&&&
+DD
+&&&&
+IMDB-MULTI
+&&&&
+MUTAG
+&&&&
+ENZYMES
+&&&&
+PROTEINS
+&&&&
+IMDB-BINARY
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.601870820331644, 0.5845673658785544, 0.6079814781179171, 0.6008053675362641, 0.6111249273323179, 0.6197217200402079, 0.6218680530259569, 0.6084985308206684, 0.6251047579268955, 0.6146741009925889, 0.612783991102479, 0.6212105264212574, 0.6250665503923376, 0.6223227678233045, 0.6240535427187459, 0.6025202190380141, 0.6336998088613625, 0.63111850268764, 0.6332458635530933, 0.6332447827336283, 0.6258333918028137, 0.6257247297938673, 0.6233513080282024, 0.6267876024443311, 0.6348413149142973, 0.6417727446053036, 0.6451333780811889, 0.6266878894846032, 0.6240528550275349, 0.6324249605976584, 0.6415437570272501, 0.6469289740000583, 0.6447012985866845, 0.6482899976108656, 0.6511950783233815, 0.6533437508187693, 0.6615179363182053, 0.6619952631276489, 0.6568939651926259, 0.6602334649092849, 0.6706523821502361, 0.6545034929423765, 0.6407997833023612, 0.6614733100302288, 0.6661797655813584, 0.6625921607929715, 0.6624234489053337, 0.6508158013258936, 0.6534233014807476, 0.657666010707683]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.671533
+ENZYMES      0.433333
+DD           0.677966
+PROTEINS     0.687500
+COLLAB       0.520000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.473333
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7128953771289538, 0.21666666666666667, 0.6864406779661016, 0.6964285714285714, 0.758, 0.72, 0.5]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.712895
+ENZYMES      0.216667
+DD           0.686441
+PROTEINS     0.696429
+COLLAB       0.758000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.500000
+mean_accs_fedavg [0.46644963721950966, 0.5424183464667126, 0.582851984163482, 0.5953953848429708, 0.6122429723043774, 0.6123081482105777, 0.6106359870384165, 0.6144898144761854, 0.6248563819884292, 0.6204250910640046, 0.6259106873885838, 0.6283216276380743, 0.6376981951095322, 0.6405892673141638, 0.6355987286763406, 0.6345803774041232, 0.6404664631110676, 0.6462443796355509, 0.6497929859222495, 0.6514744287731838, 0.644608302425615, 0.651946689099768, 0.6489904847202062, 0.6528282448816084, 0.654783120102474, 0.6576354024442405, 0.6556925628392085, 0.655537704521725, 0.6564928049699592, 0.6581530279586494, 0.6577525936368986, 0.6565170499937713, 0.6528454598205726, 0.6539028323008699, 0.6549601798566091, 0.6600494267678899, 0.6602565793002929, 0.6604660656776625, 0.6576020685670986, 0.6589807426168725, 0.6561095187440402, 0.6566184528385242, 0.6615183598925822, 0.6666155593239397, 0.663632067764981, 0.6588796375072928, 0.6567075318489197, 0.6643139517805902, 0.6608940966965015, 0.6603479864909827]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 1.0
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.985, 0.6958637469586375, 0.21666666666666667, 0.6949152542372882, 0.6785714285714286, 0.762, 0.73, 0.4666666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.985000
+NCI1         0.695864
+ENZYMES      0.216667
+DD           0.694915
+PROTEINS     0.678571
+COLLAB       0.762000
+IMDB-BINARY  0.730000
+IMDB-MULTI   0.466667
+running hierarchical clustering...
+
+clusters1:
+ [3 1 1 1 1 1 1 4 2 5 7 6 2]
+BZR
+COX2
+DHFR
+PTC_MR
+AIDS
+NCI1
+&&&&
+DD
+IMDB-MULTI
+&&&&
+MUTAG
+&&&&
+ENZYMES
+&&&&
+PROTEINS
+&&&&
+IMDB-BINARY
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.5989312542274112, 0.589467769611075, 0.6080452886115186, 0.6017052365237243, 0.6125550132676618, 0.621981445715992, 0.6216116427695467, 0.615332398899062, 0.6238825178798378, 0.6238315222343847, 0.6289259160668709, 0.6348799624328929, 0.6417093214321764, 0.645271815909121, 0.6397896211069336, 0.6286880709807021, 0.6500021496398877, 0.6507368052889936, 0.6522947181790233, 0.6578332789625425, 0.6531107547755249, 0.6571155042633253, 0.6527486385627346, 0.6453389531514409, 0.6433033500542986, 0.6682946727781658, 0.6711728705899997, 0.6527312763422918, 0.6447609134543241, 0.6635841770873836, 0.6711870360748964, 0.6657731665100928, 0.6726823246536935, 0.6775089086433357, 0.669150711703981, 0.6734667841012113, 0.6791748744767518, 0.674571366866378, 0.6847049099285366, 0.679413368328889, 0.6879371778526985, 0.6798821669921503, 0.6749972567225861, 0.6822103931046866, 0.6831881973327073, 0.6921346573907694, 0.6715686097571008, 0.6849504746034591, 0.6706838159054956, 0.6673778060054614]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.693431
+ENZYMES      0.333333
+DD           0.686441
+PROTEINS     0.660714
+COLLAB       0.786000
+IMDB-BINARY  0.680000
+IMDB-MULTI   0.480000
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7153284671532847, 0.26666666666666666, 0.6694915254237288, 0.6964285714285714, 0.766, 0.66, 0.49333333333333335]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.715328
+ENZYMES      0.266667
+DD           0.669492
+PROTEINS     0.696429
+COLLAB       0.766000
+IMDB-BINARY  0.660000
+IMDB-MULTI   0.493333
+mean_accs_fedavg [0.46500013677948276, 0.5436708453802285, 0.585326052880035, 0.5984079246146347, 0.612866788671111, 0.6186286055173025, 0.6166619201345587, 0.6220938681609642, 0.6139758843673648, 0.6193681522710148, 0.623013438651919, 0.6261448293652101, 0.6407041364443736, 0.6447435926992822, 0.6432475097068487, 0.6430581698496257, 0.6531227498323056, 0.6534268097255649, 0.6484342105065646, 0.6523165720313855, 0.6464608387712851, 0.6494016041999264, 0.6564092777915417, 0.6489776716847528, 0.6533642409281202, 0.6618722621040247, 0.6575758184758974, 0.6582365569497621, 0.6585345513385644, 0.6570902851424734, 0.6563958976091029, 0.6595332602464654, 0.658802298190253, 0.6542416102905819, 0.6599775570317866, 0.658825884299389, 0.6566800038076591, 0.6564732924399308, 0.6621761479785526, 0.6598562997373882, 0.6544346074867957, 0.6572329494598873, 0.6565872923828309, 0.6601316952561339, 0.6585264365822745, 0.6613411759688312, 0.6670870746328296, 0.6593238044583261, 0.6580744718700104, 0.6619750990172044]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 1.1
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.99, 0.7128953771289538, 0.26666666666666666, 0.6779661016949152, 0.6964285714285714, 0.766, 0.71, 0.48]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.712895
+ENZYMES      0.266667
+DD           0.677966
+PROTEINS     0.696429
+COLLAB       0.766000
+IMDB-BINARY  0.710000
+IMDB-MULTI   0.480000
+running hierarchical clustering...
+
+clusters1:
+ [1 1 1 1 1 1 1 1 1 1 3 2 1]
+MUTAG
+BZR
+COX2
+DHFR
+PTC_MR
+AIDS
+NCI1
+ENZYMES
+DD
+PROTEINS
+IMDB-MULTI
+&&&&
+IMDB-BINARY
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.6003554486770295, 0.5788900294618268, 0.5966226834423467, 0.6018547245053292, 0.6153167308687955, 0.6324621871898672, 0.6299403446668493, 0.6307710214954849, 0.6302125738603949, 0.6340043230613363, 0.6370970650753947, 0.6354339259134307, 0.6456506884490106, 0.652716683693405, 0.6495728773780657, 0.6485193493975304, 0.6571839094858813, 0.659625114266502, 0.6594196022231823, 0.6678501349878732, 0.6650072965610933, 0.6545696861283077, 0.6592152491718046, 0.6648832318551281, 0.6590165476506361, 0.6632181398361647, 0.6724787052906654, 0.6647130644210116, 0.6588608450704007, 0.6674541874562381, 0.6707237846164698, 0.6768983306633503, 0.6704573669234778, 0.6812076237597177, 0.6787453844649285, 0.6758624134213735, 0.681189526491404, 0.6809095052012997, 0.6893615997478517, 0.6800973860655382, 0.680977450452469, 0.6804162221430653, 0.6754256994975069, 0.6827465513874119, 0.6832683173240609, 0.6829675189701979, 0.6819604951820805, 0.6743940893622415, 0.6715275627668201, 0.6752204924878432]
+             test_acc
+MUTAG        0.736842
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.695864
+ENZYMES      0.300000
+DD           0.703390
+PROTEINS     0.705357
+COLLAB       0.692000
+IMDB-BINARY  0.740000
+IMDB-MULTI   0.480000
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7031630170316302, 0.3, 0.652542372881356, 0.6875, 0.768, 0.71, 0.4866666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.703163
+ENZYMES      0.300000
+DD           0.652542
+PROTEINS     0.687500
+COLLAB       0.768000
+IMDB-BINARY  0.710000
+IMDB-MULTI   0.486667
+mean_accs_fedavg [0.46663679799061203, 0.5425721926205587, 0.5832741998297902, 0.5978925219176162, 0.6134716922833138, 0.607520417074956, 0.610922495737767, 0.6155784273973482, 0.6117253218654105, 0.6207421892200858, 0.6214483658427538, 0.6212563026377004, 0.6442392327143456, 0.6412898195970492, 0.6406023418308878, 0.6401634403060034, 0.6460902851424735, 0.6440913222306688, 0.6409158705636917, 0.647143324375087, 0.6486675558036856, 0.6496842264809403, 0.6505126918215297, 0.649419783719281, 0.6516724793102175, 0.6598568650716785, 0.6579911033024157, 0.6611475697070571, 0.6629068236289364, 0.6596623782932501, 0.6601666122958759, 0.6580624650307118, 0.6582687601583233, 0.6629417843999482, 0.6587510161389708, 0.6587165345992313, 0.6596277095927395, 0.6607257913534466, 0.6596610242099958, 0.6612168821835205, 0.6601558772887905, 0.657630329843535, 0.6586734971385272, 0.6613211842075307, 0.6616839400751112, 0.6611343155069294, 0.6661823682418557, 0.6641677792183592, 0.6623337813056777, 0.6673807108493904]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 1.2
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.99, 0.7007299270072993, 0.25, 0.6864406779661016, 0.6964285714285714, 0.736, 0.71, 0.49333333333333335]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.700730
+ENZYMES      0.250000
+DD           0.686441
+PROTEINS     0.696429
+COLLAB       0.736000
+IMDB-BINARY  0.710000
+IMDB-MULTI   0.493333
+running hierarchical clustering...
+
+clusters1:
+ [1 1 1 1 1 1 1 1 1 1 2 1 1]
+MUTAG
+BZR
+COX2
+DHFR
+PTC_MR
+AIDS
+NCI1
+ENZYMES
+DD
+PROTEINS
+IMDB-BINARY
+IMDB-MULTI
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.6032370962265603, 0.5884752907097133, 0.6004127559003023, 0.6073617965087516, 0.6252078567745198, 0.621239719876159, 0.62630454819807, 0.627599740839978, 0.6401632168913299, 0.6250146667528627, 0.6396963386831427, 0.6413520487407456, 0.6564946632090438, 0.6610809042186425, 0.6571583602279307, 0.6514027292038349, 0.6659353026553743, 0.6608291004737048, 0.6681839094858812, 0.6680562372900414, 0.6629515933464144, 0.6594853434636729, 0.6583202848841643, 0.6585079973943438, 0.6628582440794908, 0.6831585910841945, 0.6772168997738185, 0.6633599718522293, 0.6663213906281873, 0.6712372015059846, 0.6785359898552492, 0.6888965984065766, 0.6795499161120928, 0.6872593719002323, 0.6881146526663134, 0.6821291175201945, 0.6865272179969786, 0.6852482281303973, 0.6848444459873477, 0.6884420503294776, 0.6864255242623613, 0.6900260085238625, 0.6702440332318989, 0.6897308872091225, 0.6927334882000321, 0.6841784586758796, 0.6821053766522126, 0.6774828894441755, 0.6674912774642545, 0.6687880522670102]
+             test_acc
+MUTAG        0.684211
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.676399
+ENZYMES      0.300000
+DD           0.711864
+PROTEINS     0.705357
+COLLAB       0.672000
+IMDB-BINARY  0.740000
+IMDB-MULTI   0.480000
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7128953771289538, 0.3, 0.7033898305084746, 0.6875, 0.75, 0.69, 0.4866666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.712895
+ENZYMES      0.300000
+DD           0.703390
+PROTEINS     0.687500
+COLLAB       0.750000
+IMDB-BINARY  0.690000
+IMDB-MULTI   0.486667
+mean_accs_fedavg [0.46500013677948276, 0.5430259083963084, 0.5842713924182237, 0.5973724497179697, 0.6129488949231419, 0.60677906374397, 0.6142585791561838, 0.6168893796106263, 0.626675628641401, 0.621030877005557, 0.6248596593412056, 0.6278220382135189, 0.6480990207468417, 0.6442488313881778, 0.6366004858576721, 0.6396225706020755, 0.6507483902235032, 0.644538735945248, 0.6487773715930758, 0.6448947118799077, 0.6525789428825229, 0.65292064497605, 0.6495889009231627, 0.6488774357624831, 0.6575957302520259, 0.6521693435742473, 0.6556386854616889, 0.6565543808636518, 0.6587518354771648, 0.6594366624033008, 0.661778215402654, 0.6581254999173889, 0.6588446155578208, 0.6623106363612163, 0.6588248721357514, 0.667865016081871, 0.6626226562519199, 0.6616651283783337, 0.6617585349717403, 0.6585018077202709, 0.6566626073725961, 0.6552375997026297, 0.6580205695679329, 0.659715497511036, 0.6635487372639838, 0.6618637193250998, 0.6678720937499657, 0.6640478186807319, 0.659278141082154, 0.664532694912175]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 1.3
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.99, 0.6982968369829684, 0.25, 0.6864406779661016, 0.6785714285714286, 0.764, 0.68, 0.48]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.990000
+NCI1         0.698297
+ENZYMES      0.250000
+DD           0.686441
+PROTEINS     0.678571
+COLLAB       0.764000
+IMDB-BINARY  0.680000
+IMDB-MULTI   0.480000
+running hierarchical clustering...
+
+clusters1:
+ [1 1 1 1 1 1 1 1 1 1 2 1 1]
+MUTAG
+BZR
+COX2
+DHFR
+PTC_MR
+AIDS
+NCI1
+ENZYMES
+DD
+PROTEINS
+IMDB-BINARY
+IMDB-MULTI
+&&&&
+COLLAB
+&&&&
+  > round 50
+
+mean_accs: [0.602819861393267, 0.5905237653494289, 0.6058308787276172, 0.6022621066608865, 0.6203478663999309, 0.6207169474405448, 0.6267032178611218, 0.6323746838647045, 0.6435602671378791, 0.6378032054441601, 0.6447594977394355, 0.6500732192976826, 0.6560282261655312, 0.6575873422319466, 0.6540870519741406, 0.6539282766490905, 0.661212890855454, 0.6581967605879319, 0.6697861260041561, 0.6707808855025654, 0.663801826436348, 0.6589048815527027, 0.6594434174116641, 0.6634897378898169, 0.6642068996714966, 0.6752355476005725, 0.6740435030233465, 0.6708734597588457, 0.6701756399707454, 0.6811582230593829, 0.6777528652311003, 0.6824322894194321, 0.6759457382576984, 0.6814315636616235, 0.6836028692416883, 0.6867016137690485, 0.6817281178641532, 0.684997188209866, 0.6816310731916416, 0.6890103182403783, 0.681460296691965, 0.6896216673432527, 0.6664253314726948, 0.6749627196332818, 0.6765187074410944, 0.6687378917373539, 0.6671046184924788, 0.6738188049617068, 0.664939602463603, 0.6619135583398847]
+             test_acc
+MUTAG        0.736842
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.676399
+ENZYMES      0.350000
+DD           0.711864
+PROTEINS     0.705357
+COLLAB       0.520000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.460000
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.6982968369829684, 0.26666666666666666, 0.6694915254237288, 0.6785714285714286, 0.76, 0.71, 0.4866666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.698297
+ENZYMES      0.266667
+DD           0.669492
+PROTEINS     0.678571
+COLLAB       0.760000
+IMDB-BINARY  0.710000
+IMDB-MULTI   0.486667
+mean_accs_fedavg [0.46500013677948276, 0.5436708453802285, 0.583699803423277, 0.5993457777219793, 0.610558525364456, 0.6114346022752973, 0.6135093650728115, 0.6151618383366915, 0.6249799692758171, 0.6225756467230348, 0.6280866108094659, 0.6283594128146692, 0.6391491664648707, 0.644170592294598, 0.6441667613900495, 0.6399361793200513, 0.6470084328943463, 0.6409538415415365, 0.6436226755118054, 0.655225567938773, 0.6540841947134584, 0.6557136297553021, 0.6576149520710745, 0.6589499564827211, 0.6585040060662771, 0.6564496875240828, 0.6501766752462458, 0.6539230531415163, 0.6578510592357973, 0.6585197751542965, 0.6606347872608342, 0.6534797991090626, 0.6583952330297547, 0.6550924393040363, 0.6650035150524867, 0.6598251642062526, 0.6553804262562568, 0.6594737143447198, 0.6570548963488265, 0.659976831273978, 0.6566081340715558, 0.6558896143546443, 0.6569304783939002, 0.6673058370243001, 0.663337984719073, 0.6605867213838683, 0.6604671639443183, 0.6583794140926192, 0.6627292366071084, 0.6617924205879592]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 1.4
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.985, 0.7055961070559611, 0.25, 0.6949152542372882, 0.6875, 0.74, 0.72, 0.4866666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.985000
+NCI1         0.705596
+ENZYMES      0.250000
+DD           0.694915
+PROTEINS     0.687500
+COLLAB       0.740000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.486667
+running hierarchical clustering...
+
+clusters1:
+ [1 1 1 1 1 1 1 1 1 1 1 1 1]
+MUTAG
+BZR
+COX2
+DHFR
+PTC_MR
+AIDS
+NCI1
+ENZYMES
+DD
+PROTEINS
+COLLAB
+IMDB-BINARY
+IMDB-MULTI
+&&&&
+  > round 50
+
+mean_accs: [0.5998122127262098, 0.601234506564995, 0.5959795591535463, 0.605730182380787, 0.6306915966727098, 0.625560238361344, 0.6266269650282192, 0.6417904155205699, 0.6366285787800495, 0.6466212221834933, 0.6459141383069179, 0.6465857914712718, 0.6522152571023457, 0.6612612986520369, 0.6598986669540718, 0.6492895923303987, 0.6625130774724165, 0.6548470429831729, 0.6561430205220677, 0.6480224946501498, 0.6565076441453824, 0.6516014175829639, 0.6519600250977633, 0.6595030988123699, 0.6595042981367782, 0.6691919334762334, 0.6774844538000637, 0.6652398537055316, 0.6595253326509466, 0.6718267722934107, 0.6794807964610728, 0.6795353939317288, 0.6726420066888426, 0.6816146639956581, 0.6801415059795182, 0.6786387467832568, 0.6849063139515414, 0.6857801580751691, 0.6780239331668348, 0.6789742286134806, 0.6777883645991495, 0.6840045504710943, 0.6836439169952094, 0.6821495050810894, 0.6871453526974466, 0.6866656920430364, 0.6906865643209916, 0.6841819039295414, 0.6827562039412214, 0.6762794481307405]
+             test_acc
+MUTAG        0.736842
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.698297
+ENZYMES      0.300000
+DD           0.703390
+PROTEINS     0.705357
+COLLAB       0.770000
+IMDB-BINARY  0.700000
+IMDB-MULTI   0.453333
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.7055961070559611, 0.3, 0.6779661016949152, 0.6964285714285714, 0.756, 0.69, 0.4866666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.705596
+ENZYMES      0.300000
+DD           0.677966
+PROTEINS     0.696429
+COLLAB       0.756000
+IMDB-BINARY  0.690000
+IMDB-MULTI   0.486667
+mean_accs_fedavg [0.46663679799061203, 0.5430702369491116, 0.5831837916606984, 0.6016167040409076, 0.6139523401768034, 0.6102557241613703, 0.6084054849535906, 0.6174599700371489, 0.6358740324273959, 0.6236437043613013, 0.6252042051002012, 0.6221033505957219, 0.6446427284515666, 0.6496994800837851, 0.6419294854901483, 0.6441049314924533, 0.6477489555577935, 0.6523065321928786, 0.6440533385639581, 0.648830683636305, 0.6534380776650154, 0.6566865354013488, 0.6556814820605291, 0.6535755719493612, 0.6569407285050409, 0.6630078426354978, 0.6582273919632372, 0.6568188678097544, 0.6625288696722988, 0.6622759064822454, 0.6580413063469278, 0.6550314536691917, 0.6570804630539675, 0.6597116110926995, 0.6639592114242414, 0.6641884967374683, 0.6557701199062497, 0.6550549212733845, 0.6619394811442117, 0.6540307335760556, 0.654658974958163, 0.6569141190470322, 0.6615692007791893, 0.6539311984870364, 0.6591422623623339, 0.6584562129999267, 0.6648089346936727, 0.6643230843651898, 0.6616103131576766, 0.6650515809294527]
+1
+
+(pyTorch2_cuda117) D:\Users\yapchen\Documents\Github\GHCFL_Nikkie>python main_multiDS.py --repeat 5 --data_group mix --seed 10  --num_rounds 50 --comm_threshold 1 --local_epoch 1 --dist_threshold 1.5
+Output Path: ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1
+Preparing data (original features) ...
+@@@ mix
+  ** MUTAG 188
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** BZR 405
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COX2 467
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DHFR 756
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PTC_MR 344
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** AIDS 2000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** NCI1 4110
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** ENZYMES 600
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** DD 1178
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** PROTEINS 1113
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** COLLAB 5000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-BINARY 1000
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+  ** IMDB-MULTI 1500
+C:\Users\yapchen\Anaconda3\envs\pyTorch2_cuda117\lib\site-packages\torch_geometric\deprecation.py:22: UserWarning: 'data.DataLoader' is deprecated, use 'loader.DataLoader' instead
+  warnings.warn(out)
+Done
+Wrote to ./outputs_csv\seqLen10\multiDS-nonOverlap\mix\eps_0.01_0.1\repeats\5_stats_trainData.csv
+
+Done setting up devices.
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.985, 0.6958637469586375, 0.21666666666666667, 0.6610169491525424, 0.6785714285714286, 0.756, 0.72, 0.4666666666666667]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.985000
+NCI1         0.695864
+ENZYMES      0.216667
+DD           0.661017
+PROTEINS     0.678571
+COLLAB       0.756000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.466667
+running hierarchical clustering...
+
+clusters1:
+ [1 1 1 1 1 1 1 1 1 1 1 1 1]
+MUTAG
+BZR
+COX2
+DHFR
+PTC_MR
+AIDS
+NCI1
+ENZYMES
+DD
+PROTEINS
+COLLAB
+IMDB-BINARY
+IMDB-MULTI
+&&&&
+  > round 50
+
+mean_accs: [0.6025798354082824, 0.5908755133993087, 0.6080444749379968, 0.6126493479609697, 0.6240163645684291, 0.6303330940676404, 0.6310434054478763, 0.6381437979416869, 0.637968294612899, 0.642864464342794, 0.6513833503600714, 0.6592102094261983, 0.6552921801792688, 0.6566650234686036, 0.6564281450021073, 0.6596868104778335, 0.6581535321144796, 0.662114914004477, 0.6646596282081668, 0.6659170182262893, 0.6653011867815576, 0.6631977976761271, 0.666976856198536, 0.6638610360831488, 0.6665853253820392, 0.682977320618181, 0.681593400402144, 0.6700107215173398, 0.6647133814160706, 0.6857235056880082, 0.6796517601215206, 0.681001985734087, 0.6792318189344138, 0.6890030665535521, 0.6817726335777275, 0.6812277952044219, 0.6857391317997001, 0.6826413421094943, 0.6852616048663303, 0.6915015520467797, 0.6862557145612413, 0.6864484996721263, 0.6833227849604288, 0.6864939821842575, 0.6882919283577547, 0.6890637544532231, 0.6872836837671769, 0.6854718567019167, 0.6875914141414666, 0.683954229553697]
+             test_acc
+MUTAG        0.736842
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.690998
+ENZYMES      0.350000
+DD           0.703390
+PROTEINS     0.696429
+COLLAB       0.796000
+IMDB-BINARY  0.720000
+IMDB-MULTI   0.473333
+  > round 50
+final accs: [0.631578947368421, 0.7804878048780488, 0.7872340425531915, 0.6052631578947368, 0.5714285714285714, 0.98, 0.708029197080292, 0.26666666666666666, 0.6949152542372882, 0.7053571428571429, 0.772, 0.73, 0.5133333333333333]
+             test_acc
+MUTAG        0.631579
+BZR          0.780488
+COX2         0.787234
+DHFR         0.605263
+PTC_MR       0.571429
+AIDS         0.980000
+NCI1         0.708029
+ENZYMES      0.266667
+DD           0.694915
+PROTEINS     0.705357
+COLLAB       0.772000
+IMDB-BINARY  0.730000
+IMDB-MULTI   0.513333
+mean_accs_fedavg [0.46500013677948276, 0.5471136963146048, 0.582040239349263, 0.601343766536744, 0.6129034243724134, 0.6132888896844529, 0.6123753484440528, 0.6301918506766135, 0.633055282452887, 0.6226210866845332, 0.6226422322262775, 0.6255064851534401, 0.6410822451598571, 0.6379468875898837, 0.6418437468236847, 0.6485707288811753, 0.6553068491879375, 0.6510042294809506, 0.6463100465555418, 0.6463784268535396, 0.6503239286279417, 0.6523043474420857, 0.6479067379790919, 0.6523170992990784, 0.6586205881933752, 0.6614681761079557, 0.6616663508146049, 0.6587144416161288, 0.6606434598740472, 0.658286597758061, 0.6574929921307303, 0.6598754284292249, 0.6612197813627775, 0.6590003181380564, 0.6624918557974772, 0.6606524875489168, 0.6645316770838654, 0.6645442549221267, 0.6646805748066218, 0.6619800225237361, 0.6591974557565101, 0.6640722927838897, 0.6629456957428427, 0.6611705043788846, 0.6637096860104825, 0.6647792524908493, 0.6636730310492946, 0.6653379847190732, 0.6615307890898436, 0.6581367678568394]
