@@ -1,2 +1,2 @@
-,accuracy
-50r_1n_mix_5e_1.0d,0.9965227991316429
+,improve_ratio_to_avg,max_acc_ghcfl,max_acc_fedavg,mean_acc_ghcfl,mean_acc_fedavg
+mix,0.9965101137334659,0.6791612652149674,0.7026226364193133,0.6574213369903003,0.6597236976624796
