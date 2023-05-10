@@ -43,9 +43,9 @@ def run_ghcfl(clients, server, comm_threshold, dist_threshold, COMMUNICATION_ROU
             selected_clients = clients
         else:
             selected_clients = server.randomSample_clients(clients, frac)
-            #21:28
+            
         for client in selected_clients:
-            client.local_train(local_epoch) #client_update
+            client.compute_weight_update(local_epoch) #client_update
         
         server.aggregate_weights(selected_clients) #W(t+1) = sum(n{k}/n * W(t))
         
@@ -53,7 +53,7 @@ def run_ghcfl(clients, server, comm_threshold, dist_threshold, COMMUNICATION_ROU
         for client in selected_clients:
             client.download_from_server(server)#到了这一步，客户端最后存储了server进行Avg操作后的joint global model
             # cache the aggregated weights for next round
-            # client.cache_weights()#这里已经把joint global model的w存到了w_old
+            client.cache_weights()#这里已经把joint global model的w存到了w_old
         
         accs = []
         client_dWs = []         
@@ -78,22 +78,22 @@ def run_ghcfl(clients, server, comm_threshold, dist_threshold, COMMUNICATION_ROU
     
     
     '''for the rest of the communication rounds, update by clusters'''
-    # for client in clients:
-    #     client.download_from_server(server)#initialize all the clients 
+    for client in clients:
+        client.download_from_server(server)#initialize all the clients 
     for c_round in range(comm_threshold,COMMUNICATION_ROUNDS + 1):
         if (c_round) % 50 == 0:
             print(f"  > round {c_round}")
         selected_clients = server.randomSample_clients(clients, frac)
         
         for client in selected_clients:
-            client.compute_weight_update(local_epoch) #client_update
-            
+            client.compute_weight_update(3) #client_update
+
         server.aggregate_clusterwise(client_clusters)#aggregate by clusters
         #pass the aggregated weights from server to selected clients:
-        # for client in selected_clients:
-            # client.download_from_server(server)#到了这一步，客户端最后存储了server进行Avg操作后的joint global model
+        for client in selected_clients:
+            client.download_from_server(server)#到了这一步，客户端最后存储了server进行Avg操作后的joint global model
             # cache the aggregated weights for next round
-            # client.cache_weights()#这里已经把joint global model的w存到了w_old
+            client.cache_weights()#这里已经把joint global model的w存到了w_old
             
         accs = [] 
         client_dWs = []    
@@ -122,7 +122,6 @@ def run_ghcfl(clients, server, comm_threshold, dist_threshold, COMMUNICATION_ROU
     for client in clients:
         loss, acc = client.evaluate()
         frame.loc[client.name, 'test_acc'] = acc
-
     print(frame)
     return frame,mean_accs_ghcfl
 
